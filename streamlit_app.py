@@ -10,6 +10,9 @@ my_data_rows = my_cur.fetchall()
 streamlit.header("Hello,the fruit_load_list contais:")
 streamlit.dataframe(my_data_rows)
 
+fruit_add = streamlit.text_input('What fruit would you like to add?','KiwiL')
+streamlit.write('The user entered ', fruit_add)
+
 streamlit.title('altamente mais ou menos')
 streamlit.header('DENAO CARARECO COISADO')
 streamlit.text('text property')
