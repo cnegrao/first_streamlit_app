@@ -1,7 +1,7 @@
 import streamlit
 import pandas
 import requests
-
+import snowflake.connector
 
 streamlit.title('altamente mais ou menos')
 streamlit.header('DENAO CARARECO COISADO')
