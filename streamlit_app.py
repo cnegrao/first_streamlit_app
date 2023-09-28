@@ -6,9 +6,9 @@ import snowflake.connector
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * from fruit_load_list")
-my_data_row = my_cur.fetchone()
+my_data_rows = my_cur.fetall()
 streamlit.header("Hello,the fruit_load_list contais:")
-streamlit.dataframe(my_data_row)
+streamlit.dataframe(my_data_rows)
 
 streamlit.title('altamente mais ou menos')
 streamlit.header('DENAO CARARECO COISADO')
