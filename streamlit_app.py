@@ -34,15 +34,15 @@ if streamlit.button('get list'):
 
 def insert_row_snowflake(new_fruit):
    with my_cnx.cursor() as my_cur: 
-    streamlit.write("insert into fruit_load_lists values ('from  streamlit')")
-    my_cur.execute( "insert into fruit_load_lists values " + "('" + fruit_add + "')")
-    return new_fruit
+      streamlit.write("insert into fruit_load_lists values ('from  streamlit')")
+      my_cur.execute( "insert into fruit_load_lists values " + "('" + fruit_add + "')")
+      return new_fruit
 
 add_my_fruit = streamlit.text_input('What fruit would you like add?','jaca')
- if streamlit.button('add fruit'):
-    my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-    back_from_function = insert_row_snowflake()
-    streamlit.text(back_from_function)
+if streamlit.button('add fruit'):
+  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+  back_from_function = insert_row_snowflake()
+  streamlit.text(back_from_function)
 
 # Let's put a pick list here so they can pick the fruit they want to include 
 fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index), ['Avocado','Strawberries'] )
