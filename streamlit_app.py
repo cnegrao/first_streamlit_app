@@ -11,11 +11,7 @@ from urllib.error import URLError
 streamlit.header("Hello,the fruit_load_list contais:")
 #streamlit.dataframe(my_data_rows)
 
-fruit_add = streamlit.text_input('What fruit would you like add?','jaca')
-streamlit.write('The user entered ', fruit_add)
 
-streamlit.write( "insert into fruit_load_lists values " + "('" + fruit_add + "')")
-#my_cur.execute( "insert into fruit_load_lists values " + "('" + fruit_add + "')")
 
 streamlit.title('altamente mais ou menos')
 streamlit.header('DENAO CARARECO COISADO')
@@ -35,6 +31,17 @@ if streamlit.button('get list'):
   my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
   my_data_rows = get_fruit_load_list()
   streamlit.dataframe(my_data_rows)
+
+def insert_row_snowflake(new_fruit)
+   with my_cnx.cursor() as my_cur: 
+    streamlit.write("insert into fruit_load_lists values ('from  streamlit')")
+    my_cur.execute( "insert into fruit_load_lists values " + "('" + fruit_add + "')")
+    return new_fruit
+ add_my_fruit = streamlit.text_input('What fruit would you like add?','jaca')
+ if streamlit.button('add fruit'):
+    my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+    back_from_function = insert_row_snowflake()
+    streamlit.text(back_from_function)
 
 # Let's put a pick list here so they can pick the fruit they want to include 
 fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index), ['Avocado','Strawberries'] )
