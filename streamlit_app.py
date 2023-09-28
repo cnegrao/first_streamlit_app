@@ -11,7 +11,7 @@ streamlit.header("Hello,the fruit_load_list contais:")
 streamlit.dataframe(my_data_rows)
 
 fruit_add == streamlit.text_input('What fruit would you like to add?','jaca')
-streamlit.write('The user entered ', fruit_add)
+#streamlit.write('The user entered ', fruit_add)
 my_cur.execute("insert into fruit_load_lists values" + fruit_add)
 
 streamlit.title('altamente mais ou menos')
