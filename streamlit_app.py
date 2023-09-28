@@ -13,7 +13,7 @@ streamlit.dataframe(my_data_rows)
 fruit_add = streamlit.text_input('What fruit would you like add?','jaca')
 streamlit.write('The user entered ', fruit_add)
 
-streamlit.write( 'insert into fruit_load_lists values ' + fruit_add
+streamlit.write( 'insert into fruit_load_lists values ' + "'" + fruit_add + "'"
 #my_cur.execute("insert into fruit_load_lists values " + fruit_add)
 
 streamlit.title('altamente mais ou menos')
