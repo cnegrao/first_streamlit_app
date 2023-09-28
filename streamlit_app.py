@@ -28,7 +28,7 @@ my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.co
 my_fruit_list = my_fruit_list.set_index('Fruit')
 
 def get_fruit_load_list():
-  with my_cnx.cursor() as my_cur 
+  with my_cnx.cursor() as my_cur: 
     my_cur.execute("SELECT * from fruit_load_list")
     return my_data_rows = my_cur.fetchall
 if streamlit.button('get list')
